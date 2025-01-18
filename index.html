@@ -90,9 +90,12 @@
     }
 
     .pdf-section {
-        flex: 0.9; /* 화면의 90% */
-        width: 100%;
-    }
+    flex: 1; /* 화면의 나머지 공간을 채움 */
+    width: 100%; /* 너비를 브라우저 크기에 맞춤 */
+    padding: 10px; /* 내부 여백 추가 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
 
     .pdf-viewer {
         width: 100%;
@@ -146,13 +149,12 @@
         background-color: #0056b3;
     }
 
-    .kakao-ad{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      
-    }
+    .kakao-ad {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa; /* 광고 배경색 */
+    text-align: center;
+    box-sizing: border-box;
     
   </style>
 </head>
