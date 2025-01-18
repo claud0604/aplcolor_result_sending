@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>APL COLOR 진단결과</title>
   <style>
     .container {
@@ -15,7 +14,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 16px;
     }
     .logo {
       width : 50%;
@@ -74,14 +72,16 @@
     }
 
     .pdf-container {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 20px; /* 화면 상단 여백 */
+    box-sizing: border-box; /* 패딩을 포함해 크기 계산 */
+    justify-content: flex-start; /* 내용이 상단에서부터 시작 */
+    align-items: center; /* 내용 가운데 정렬 */
+}
+
 
     .pdf-controls {
         padding: 10px;
@@ -90,9 +90,8 @@
     }
 
     .pdf-section {
-        flex: 1;
+        flex: 0.9; /* 화면의 90% */
         width: 100%;
-        height: 100vh;
     }
 
     .pdf-viewer {
