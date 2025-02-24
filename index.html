@@ -18,7 +18,7 @@
     .logo {
       width : 50%;
       min-width: 300px;
-
+      
     }
     .form-group {
       display: flex;
@@ -49,7 +49,7 @@
       display: none;
       margin: 20px 0;
     }
-
+    
     .loading-spinner {
       border: 4px solid #f3f3f3;
       border-top: 4px solid #3498db;
@@ -59,7 +59,7 @@
       animation: spin 1s linear infinite;
       margin: 0 auto;
     }
-
+    
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -72,10 +72,6 @@
     }
 
     .pdf-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        width: 100%;
       display: flex;
       flex-direction: column;
       position: fixed;  /* 화면에 고정 */
@@ -92,13 +88,11 @@
     }
 
     .pdf-controls {
-@@ -84,15 +93,21 @@
+        padding: 10px;
+        background-color: #f8f9fa;
         border-bottom: 1px solid #ddd;
     }
 
-    .pdf-section {
-        flex: 0.9; /* 화면의 90% */
-        width: 100%;
    .pdf-section {
       flex: 1;
       width: 100%;
@@ -110,9 +104,6 @@
     }
 
     .pdf-viewer {
-        width: 100%;
-        height: 100%;
-        border: none;
       width: 100%;
       height: 100%;
       border: none;
@@ -120,16 +111,51 @@
     }
 
     .banner-section {
-@@ -141,125 +156,130 @@
+        flex: 0.1; /* 화면의 10% */
+        background-color: #f8f9fa;
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .banner-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    .banner-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .banner-links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .banner-links a:hover {
+        text-decoration: underline;
+    }
+
+    .back-button {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .back-button:hover {
         background-color: #0056b3;
     }
 
-    .kakao-ad{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      
     .kakao-ad {
       position: fixed;  /* 광고를 고정 */
       bottom: 0;  /* 맨 아래에 배치 */
@@ -142,7 +168,7 @@
       box-sizing: border-box;
       z-index: 1000;  /* 다른 요소들 위에 표시 */
     }
-
+    
   </style>
 </head>
 
@@ -152,7 +178,7 @@
   <div class="container" id="searchContainer">
     <h1>APL COLOR 진단결과</h1>
     <img src="./APLCOLOR_logo.png" alt="APL COLOR 로고" class="logo">
-
+    
     <div class="form-group">
       <label for="date">고객님의 진단날짜를 선택해주세요. </label>
       <input type="date" id="date" required>
@@ -162,7 +188,7 @@
       <label for="time" class="block mb-2">진단타임을 선택해주세요.</label>
       <input type="time" id="time" required step="1800" value="12:00" class="w-full p-2 border rounded">
     </div>
-
+    
     <div class="form-group">
       <label for="name">고객님의 성함을 입력해주세요.</label>
       <input type="text" id="name" required>
@@ -228,8 +254,8 @@
 
         const response = await fetch(`https://bwx6uodrc3rbruyupqp4qdqbqu0nimui.lambda-url.ap-northeast-2.on.aws/api/check-pdf?fileNumber=${fileNumber}_${encodeURIComponent(name)}`);
         const data = await response.json();
-
-
+        
+        
         if (!response.ok) {
           throw new Error('진단날짜와 성함을 확인해주세요.');
         }
@@ -238,7 +264,7 @@
         document.getElementById('searchContainer').style.display = 'none';
         document.getElementById('pdfContainer').style.display = 'flex';
         document.getElementById('pdfViewer').src = data.pdfUrl;
-
+        
       } catch (error) {
         result.innerHTML = `
           <p class="error-message">오류: ${error.message}</p>
